@@ -61,19 +61,22 @@
     }
 
     .scroll-area {
-      min-height: 100%;
       position: relative;
     }
 
-    /* Header section - fixed height matching Figma proportions */
-    .tile-header {
+    /* First screen - exactly matches tile height */
+    .first-screen {
       position: relative;
-      padding: 20px;
-      min-height: 100%;
+      height: 100vh;
+      height: calc((100vh - 32px) / 3);
+      overflow: hidden;
     }
 
-    /* Title - 36px Neue Haas Grotesk Medium */
+    /* Title - 36px positioned top-left */
     .title {
+      position: absolute;
+      top: 20px;
+      left: 20px;
       font-family: 'Neue Haas Grotesk', sans-serif;
       font-size: 36px;
       font-weight: 500;
@@ -81,13 +84,12 @@
       letter-spacing: -1.08px;
     }
 
-    /* Content block positioned to the right */
+    /* Content block - top right */
     .content-block {
       position: absolute;
       top: 20px;
+      left: 40%;
       right: 20px;
-      width: 55%;
-      max-width: 297px;
     }
 
     .subtitle {
@@ -106,17 +108,6 @@
       line-height: 1.1;
     }
 
-    /* Large quote text at bottom */
-    .quote-text {
-      font-family: 'Neue Haas Grotesk', sans-serif;
-      font-size: 36px;
-      font-weight: 500;
-      line-height: 0.92;
-      letter-spacing: -1.08px;
-      margin-top: 40px;
-      padding-right: 20px;
-    }
-
     /* Tile backgrounds */
     .tile-agentic { background: #283043; color: #f0f1ec; }
     .tile-checkout { background: #f0f1ec; color: #2d3520; }
@@ -128,68 +119,94 @@
     .tile-marketing { background: #b94828; color: #e2dfcc; }
     .tile-shipping { background: #2d3520; color: #f0f1ec; }
 
-    /* Image containers */
-    .image-container {
-      margin-top: 20px;
+    /* ============ AGENTIC ============ */
+    .agentic-image {
+      position: absolute;
+      top: 42%;
+      left: 20px;
+      right: 20px;
       border-radius: 15px 15px 0 0;
       overflow: hidden;
-      margin-left: 8px;
-      margin-right: 8px;
     }
-
-    .image-container img {
+    .agentic-image img {
       width: 100%;
       display: block;
     }
 
-    /* Checkout specific - shop button overlay */
-    .checkout-wrapper {
-      position: relative;
-    }
-
-    .shop-button-container {
+    /* ============ CHECKOUT ============ */
+    .checkout-image {
       position: absolute;
-      bottom: -30px;
+      top: 38%;
+      left: 20px;
+      right: 20px;
+      border-radius: 15px 15px 0 0;
+      overflow: hidden;
+    }
+    .checkout-image img {
+      width: 100%;
+      display: block;
+    }
+    .shop-button {
+      position: absolute;
+      bottom: -8px;
       left: 50%;
       transform: translateX(-50%);
       height: 60px;
       border-radius: 70px;
       overflow: hidden;
-      z-index: 2;
     }
-
-    .shop-button-container img {
+    .shop-button img {
       height: 100%;
       width: auto;
     }
 
-    /* Center tile */
+    /* ============ DEVELOPER ============ */
+    .quote-text {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      font-family: 'Neue Haas Grotesk', sans-serif;
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 0.92;
+      letter-spacing: -1.08px;
+    }
+
+    /* ============ ONLINE ============ */
+    .online-quote {
+      position: absolute;
+      bottom: -10px;
+      left: 20px;
+      right: 20px;
+      font-family: 'Neue Haas Grotesk', sans-serif;
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 0.92;
+      letter-spacing: -1.08px;
+    }
+
+    /* ============ CENTER ============ */
     .center-bg {
       position: absolute;
       inset: 0;
       background-size: cover;
       background-position: center;
-      border-radius: 9px;
     }
-
     .center-content {
-      position: relative;
+      position: absolute;
+      inset: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100%;
       text-align: center;
-      padding: 20px;
-      z-index: 1;
     }
-
     .center-logo {
       width: 60px;
       height: 60px;
       margin-bottom: 16px;
     }
-
     .center-title {
       font-family: 'Neue Haas Grotesk', sans-serif;
       font-size: 36px;
@@ -199,78 +216,78 @@
       color: #fff;
     }
 
-    /* Operations phones */
-    .phones-container {
-      margin-top: 30px;
-      margin-left: auto;
-      margin-right: 8px;
-      width: 85%;
-      border-radius: 8px 8px 0 0;
-      overflow: hidden;
-    }
-
-    .phones-container img {
-      width: 100%;
-      display: block;
-    }
-
-    /* Retail device */
-    .retail-container {
-      margin-top: 20px;
-    }
-
-    .retail-container img {
-      width: 100%;
-      display: block;
-    }
-
-    /* Marketing skateboards */
-    .skateboards-container {
-      margin-top: 30px;
+    /* ============ OPERATIONS ============ */
+    .operations-phones {
+      position: absolute;
+      bottom: -5%;
+      left: 15%;
+      right: 15%;
       display: flex;
       justify-content: center;
-      gap: 6px;
-      padding: 0 20px;
+      gap: 8px;
+    }
+    .operations-phones img {
+      width: 100%;
+      border-radius: 8px 8px 0 0;
     }
 
+    /* ============ RETAIL ============ */
+    .retail-device {
+      position: absolute;
+      bottom: -15%;
+      left: -5%;
+      width: 85%;
+    }
+    .retail-device img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ============ MARKETING ============ */
+    .skateboards {
+      position: absolute;
+      bottom: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      width: 85%;
+      justify-content: center;
+    }
     .skateboard {
-      flex: 1;
-      max-width: 93px;
+      width: 23%;
       border-radius: 46px 46px 0 0;
       overflow: hidden;
     }
-
     .skateboard img {
       width: 100%;
       display: block;
     }
 
-    /* Shipping card */
-    .shipping-card-container {
-      margin-top: 30px;
-      margin-left: auto;
-      margin-right: 20px;
-      width: 220px;
+    /* ============ SHIPPING ============ */
+    .shipping-card {
+      position: absolute;
+      bottom: -5%;
+      right: 20px;
+      width: 45%;
+      max-width: 220px;
       background: #fff;
       border-radius: 12px 12px 0 0;
       padding: 16px;
       color: #000;
     }
-
     .shipping-card-title {
       font-family: 'Neue Haas Grotesk', sans-serif;
       font-size: 14px;
       font-weight: 500;
       margin-bottom: 12px;
     }
-
     .shipping-card-label {
       font-family: 'Neue Haas Grotesk', sans-serif;
       font-size: 11px;
       font-weight: 400;
       color: #666;
     }
-
     .shipping-card-value {
       font-family: 'Neue Haas Grotesk', sans-serif;
       font-size: 13px;
@@ -278,120 +295,104 @@
       margin-top: 2px;
     }
 
-    /* Additional scroll content */
+    /* ============ MORE CONTENT (scroll area) ============ */
     .more-content {
-      padding: 40px 20px;
-      border-top: 1px solid currentColor;
-      margin-top: 40px;
-      opacity: 0.15;
+      padding: 40px 20px 60px;
     }
-
-    .more-content.light-border {
-      border-top-color: rgba(255,255,255,0.15);
-    }
-
-    .more-content.dark-border {
-      border-top-color: rgba(0,0,0,0.15);
-    }
-
     .more-title {
       font-family: 'Neue Haas Grotesk', sans-serif;
-      font-size: 18px;
+      font-size: 24px;
       font-weight: 500;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
-
     .more-text {
       font-family: 'Neue Haas Grotesk', sans-serif;
       font-size: 14px;
       font-weight: 400;
       line-height: 1.5;
+      margin-bottom: 20px;
     }
-
     .feature-list {
       list-style: none;
-      margin-top: 16px;
     }
-
     .feature-list li {
       font-family: 'Neue Haas Grotesk', sans-serif;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
       font-size: 14px;
       font-weight: 400;
     }
-
     .feature-list.dark li {
-      border-bottom-color: rgba(0,0,0,0.1);
+      border-bottom-color: rgba(0,0,0,0.15);
     }
   </style>
 </head>
 <body>
   <div class="grid">
-    <!-- Agentic -->
+    <!-- AGENTIC -->
     <div class="tile tile-agentic">
       <div class="tile-content">
         <div class="scroll-area">
-          <div class="tile-header">
+          <div class="first-screen">
             <div class="title">Agentic</div>
             <div class="content-block">
               <div class="subtitle">Shop Sign In for Custom IDPs</div>
               <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
             </div>
-            <div class="image-container">
+            <div class="agentic-image">
               <img src="agentic-admin.png" alt="">
             </div>
           </div>
-          <div class="more-content light-border">
+          <div class="more-content">
             <div class="more-title">AI-Powered Automation</div>
             <div class="more-text">Let Sidekick handle repetitive tasks while you focus on growing your business.</div>
             <ul class="feature-list">
               <li>Natural language commands</li>
               <li>Automated workflows</li>
               <li>Predictive analytics</li>
+              <li>Smart recommendations</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Checkout -->
+    <!-- CHECKOUT -->
     <div class="tile tile-checkout">
       <div class="tile-content">
         <div class="scroll-area">
-          <div class="tile-header">
+          <div class="first-screen">
             <div class="title">Checkout</div>
             <div class="content-block">
               <div class="subtitle">Shop Sign In for Custom IDPs</div>
               <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
             </div>
-            <div class="checkout-wrapper">
-              <div class="image-container">
-                <img src="checkout-screen.png" alt="">
-              </div>
-              <div class="shop-button-container">
-                <img src="shop-button.png" alt="">
-              </div>
+            <div class="checkout-image">
+              <img src="checkout-screen.png" alt="">
+            </div>
+            <div class="shop-button">
+              <img src="shop-button.png" alt="">
             </div>
           </div>
-          <div class="more-content dark-border">
+          <div class="more-content">
             <div class="more-title">One-Click Checkout</div>
             <div class="more-text">Shop Pay converts 1.91x better than regular checkouts.</div>
             <ul class="feature-list dark">
               <li>Custom branding</li>
               <li>Third-party integrations</li>
               <li>Multiple payment options</li>
+              <li>Express checkout</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Developer -->
+    <!-- DEVELOPER -->
     <div class="tile tile-developer">
       <div class="tile-content">
         <div class="scroll-area">
-          <div class="tile-header">
+          <div class="first-screen">
             <div class="title">Developer</div>
             <div class="content-block">
               <div class="subtitle">Shop Sign In for Custom IDPs</div>
@@ -399,165 +400,170 @@
             </div>
             <div class="quote-text">A completely new way to build for commerce with the power of AI.</div>
           </div>
-          <div class="more-content light-border">
+          <div class="more-content">
             <div class="more-title">New APIs</div>
+            <div class="more-text">Build with the most powerful commerce platform.</div>
             <ul class="feature-list">
               <li>GraphQL Storefront API</li>
               <li>Hydrogen 2.0</li>
               <li>Webhooks v2</li>
+              <li>Admin API enhancements</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Online -->
+    <!-- ONLINE -->
     <div class="tile tile-online">
       <div class="tile-content">
         <div class="scroll-area">
-          <div class="tile-header">
+          <div class="first-screen">
             <div class="title">Online</div>
             <div class="content-block">
               <div class="subtitle">Shop Sign In for Custom IDPs</div>
               <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
             </div>
-            <div class="quote-text">Validate store changes with A/B testing and an AI tool that simulates shopping behavior.</div>
+            <div class="online-quote">Validate store changes with A/B testing and an AI tool that simulates shopping behavior.</div>
           </div>
-          <div class="more-content light-border">
+          <div class="more-content">
             <div class="more-title">Store Themes</div>
             <div class="more-text">Beautiful, fast, and customizable themes built with Online Store 2.0.</div>
             <ul class="feature-list">
               <li>A/B Testing built-in</li>
               <li>AI shopping simulator</li>
               <li>Mobile-first editor</li>
+              <li>Dawn theme updates</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Center - Everywhere Edition -->
+    <!-- CENTER -->
     <div class="tile tile-center">
       <div class="center-bg" style="background-image:url('center-bg.png');"></div>
-      <div class="tile-content">
-        <div class="center-content">
-          <svg class="center-logo" viewBox="0 0 61 61" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M40.5809 7.11622C40.576 7.11622 39.9 7.32688 38.7535 7.68207C38.5625 7.06233 38.2808 6.3005 37.879 5.53378C36.5857 3.06459 34.6897 1.7565 32.3993 1.75405C32.3968 1.75405 32.3944 1.75405 32.3919 1.75405C32.2327 1.75405 32.0759 1.76875 31.9167 1.78344C31.8506 1.70261 31.782 1.62177 31.7085 1.54584C30.7115 0.477811 29.4304 -0.0415038 27.8969 0.00258893C24.9378 0.0883248 21.9934 2.22437 19.6051 6.0188C17.9246 8.68886 16.6459 12.0448 16.2834 14.6389C12.8858 15.6898 10.5097 16.4271 10.4583 16.4418C8.74354 16.9807 8.68965 17.0346 8.46428 18.6489C8.29771 19.8737 3.8125 54.5625 3.8125 54.5625L41.0317 61V7.04028C40.848 7.05253 40.6838 7.08682 40.5809 7.11622ZM31.9878 9.77648C30.0183 10.3864 27.8675 11.0527 25.7119 11.719C26.3194 9.39679 27.4683 7.08192 28.8817 5.56807C29.4083 5.00467 30.1432 4.37512 31.0128 4.01748C31.8285 5.72485 32.0074 8.1426 31.9878 9.77648ZM27.9582 1.97206C28.6539 1.95737 29.2369 2.10924 29.7366 2.43994C28.938 2.85392 28.1639 3.45162 27.4389 4.22814C25.56 6.24416 24.1197 9.37475 23.5465 12.3927C21.7558 12.9463 20.0019 13.4901 18.39 13.9898C19.4091 9.23512 23.3921 2.10189 27.9582 1.97206ZM22.2016 29.0426C22.4025 32.2099 30.7311 32.9007 31.199 40.3181C31.5664 46.153 28.1051 50.1434 23.1129 50.4594C17.1236 50.8366 13.8265 47.3043 13.8265 47.3043L15.0953 41.9054C15.0953 41.9054 18.4145 44.4089 21.0699 44.2423C22.8042 44.1321 23.424 42.7211 23.3627 41.7241C23.1031 37.5941 16.3201 37.8366 15.8915 31.0512C15.5314 25.3388 19.2817 19.5528 27.5564 19.0311C30.7458 18.8302 32.3772 19.6435 32.3772 19.6435L30.4837 26.7228C30.4837 26.7228 28.3722 25.7625 25.8711 25.9193C22.2041 26.1471 22.1649 28.462 22.2016 29.0426ZM33.9548 9.16898C33.9327 7.66983 33.7539 5.58767 33.0558 3.78477C35.2996 4.211 36.4068 6.74878 36.8723 8.26508C36.0076 8.53209 35.0204 8.83828 33.9548 9.16898Z" fill="white"/>
-            <path d="M42.2615 60.8531L57.7013 57.0146C57.7013 57.0146 51.0531 12.0669 51.0114 11.7583C50.9698 11.4496 50.7003 11.2806 50.4774 11.261C50.2545 11.2414 45.9089 11.1753 45.9089 11.1753C45.9089 11.1753 43.2585 8.60076 42.2639 7.62827V60.8531H42.2615Z" fill="white"/>
-          </svg>
-          <div class="center-title">Everywhere Edition</div>
-        </div>
+      <div class="center-content">
+        <svg class="center-logo" viewBox="0 0 61 61" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40.5809 7.11622C40.576 7.11622 39.9 7.32688 38.7535 7.68207C38.5625 7.06233 38.2808 6.3005 37.879 5.53378C36.5857 3.06459 34.6897 1.7565 32.3993 1.75405C32.3968 1.75405 32.3944 1.75405 32.3919 1.75405C32.2327 1.75405 32.0759 1.76875 31.9167 1.78344C31.8506 1.70261 31.782 1.62177 31.7085 1.54584C30.7115 0.477811 29.4304 -0.0415038 27.8969 0.00258893C24.9378 0.0883248 21.9934 2.22437 19.6051 6.0188C17.9246 8.68886 16.6459 12.0448 16.2834 14.6389C12.8858 15.6898 10.5097 16.4271 10.4583 16.4418C8.74354 16.9807 8.68965 17.0346 8.46428 18.6489C8.29771 19.8737 3.8125 54.5625 3.8125 54.5625L41.0317 61V7.04028C40.848 7.05253 40.6838 7.08682 40.5809 7.11622ZM31.9878 9.77648C30.0183 10.3864 27.8675 11.0527 25.7119 11.719C26.3194 9.39679 27.4683 7.08192 28.8817 5.56807C29.4083 5.00467 30.1432 4.37512 31.0128 4.01748C31.8285 5.72485 32.0074 8.1426 31.9878 9.77648ZM27.9582 1.97206C28.6539 1.95737 29.2369 2.10924 29.7366 2.43994C28.938 2.85392 28.1639 3.45162 27.4389 4.22814C25.56 6.24416 24.1197 9.37475 23.5465 12.3927C21.7558 12.9463 20.0019 13.4901 18.39 13.9898C19.4091 9.23512 23.3921 2.10189 27.9582 1.97206ZM22.2016 29.0426C22.4025 32.2099 30.7311 32.9007 31.199 40.3181C31.5664 46.153 28.1051 50.1434 23.1129 50.4594C17.1236 50.8366 13.8265 47.3043 13.8265 47.3043L15.0953 41.9054C15.0953 41.9054 18.4145 44.4089 21.0699 44.2423C22.8042 44.1321 23.424 42.7211 23.3627 41.7241C23.1031 37.5941 16.3201 37.8366 15.8915 31.0512C15.5314 25.3388 19.2817 19.5528 27.5564 19.0311C30.7458 18.8302 32.3772 19.6435 32.3772 19.6435L30.4837 26.7228C30.4837 26.7228 28.3722 25.7625 25.8711 25.9193C22.2041 26.1471 22.1649 28.462 22.2016 29.0426ZM33.9548 9.16898C33.9327 7.66983 33.7539 5.58767 33.0558 3.78477C35.2996 4.211 36.4068 6.74878 36.8723 8.26508C36.0076 8.53209 35.0204 8.83828 33.9548 9.16898Z" fill="white"/>
+          <path d="M42.2615 60.8531L57.7013 57.0146C57.7013 57.0146 51.0531 12.0669 51.0114 11.7583C50.9698 11.4496 50.7003 11.2806 50.4774 11.261C50.2545 11.2414 45.9089 11.1753 45.9089 11.1753C45.9089 11.1753 43.2585 8.60076 42.2639 7.62827V60.8531H42.2615Z" fill="white"/>
+        </svg>
+        <div class="center-title">Everywhere Edition</div>
       </div>
     </div>
 
-    <!-- Operations -->
+    <!-- OPERATIONS -->
     <div class="tile tile-operations">
       <div class="tile-content">
         <div class="scroll-area">
-          <div class="tile-header">
+          <div class="first-screen">
             <div class="title">Operations</div>
             <div class="content-block">
               <div class="subtitle">Shop Sign In for Custom IDPs</div>
               <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
             </div>
-            <div class="phones-container">
+            <div class="operations-phones">
               <img src="operations-phones.png" alt="">
             </div>
           </div>
-          <div class="more-content dark-border">
+          <div class="more-content">
             <div class="more-title">Unified Operations</div>
             <div class="more-text">Manage inventory, orders, and fulfillment across all channels.</div>
             <ul class="feature-list dark">
               <li>Multi-location inventory</li>
               <li>Automated reordering</li>
               <li>Demand forecasting</li>
+              <li>Supply chain visibility</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Retail -->
+    <!-- RETAIL -->
     <div class="tile tile-retail">
       <div class="tile-content">
         <div class="scroll-area">
-          <div class="tile-header">
+          <div class="first-screen">
             <div class="title">Retail</div>
             <div class="content-block">
               <div class="subtitle">Shop Sign In for Custom IDPs</div>
               <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
             </div>
-            <div class="retail-container">
+            <div class="retail-device">
               <img src="retail-device.png" alt="">
             </div>
           </div>
-          <div class="more-content light-border">
+          <div class="more-content">
             <div class="more-title">Point of Sale</div>
             <div class="more-text">The most powerful POS for modern retail.</div>
             <ul class="feature-list">
               <li>Tap to pay on iPhone</li>
               <li>Staff management</li>
               <li>Real-time reporting</li>
+              <li>Omnichannel selling</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Marketing -->
+    <!-- MARKETING -->
     <div class="tile tile-marketing">
       <div class="tile-content">
         <div class="scroll-area">
-          <div class="tile-header">
+          <div class="first-screen">
             <div class="title">Marketing</div>
             <div class="content-block">
               <div class="subtitle">Shop Sign In for Custom IDPs</div>
               <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
             </div>
-            <div class="skateboards-container">
+            <div class="skateboards">
               <div class="skateboard"><img src="skateboard-1.png" alt=""></div>
               <div class="skateboard"><img src="skateboard-2.png" alt=""></div>
               <div class="skateboard"><img src="skateboard-3.png" alt=""></div>
               <div class="skateboard"><img src="skateboard-4.png" alt=""></div>
             </div>
           </div>
-          <div class="more-content light-border">
+          <div class="more-content">
             <div class="more-title">Shopify Audiences</div>
             <div class="more-text">Find high-intent buyers with custom audiences.</div>
             <ul class="feature-list">
               <li>Email campaigns</li>
               <li>SMS marketing</li>
               <li>Retargeting ads</li>
+              <li>Social commerce</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Shipping -->
+    <!-- SHIPPING -->
     <div class="tile tile-shipping">
       <div class="tile-content">
         <div class="scroll-area">
-          <div class="tile-header">
+          <div class="first-screen">
             <div class="title">Shipping</div>
             <div class="content-block">
               <div class="subtitle">Shop Sign In for Custom IDPs</div>
               <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
             </div>
-            <div class="shipping-card-container">
+            <div class="shipping-card">
               <div class="shipping-card-title">Summary</div>
               <div class="shipping-card-label">Ship from</div>
               <div class="shipping-card-value">Anton Swift</div>
               <div class="shipping-card-label" style="margin-top:8px;">1989 Cornelia Street</div>
             </div>
           </div>
-          <div class="more-content light-border">
+          <div class="more-content">
             <div class="more-title">Shopify Shipping</div>
             <div class="more-text">Save up to 88% on shipping with pre-negotiated rates.</div>
             <ul class="feature-list">
               <li>Print labels at home</li>
               <li>Free packaging</li>
               <li>Real-time tracking</li>
+              <li>International shipping</li>
             </ul>
           </div>
         </div>
