@@ -67,45 +67,44 @@
     /* First screen - exactly matches tile height */
     .first-screen {
       position: relative;
-      height: 100vh;
       height: calc((100vh - 32px) / 3);
       overflow: hidden;
     }
 
-    /* Title - 36px positioned top-left */
+    /* Title - 32px positioned top-left */
     .title {
       position: absolute;
       top: 20px;
       left: 20px;
       font-family: 'Neue Haas Grotesk', sans-serif;
-      font-size: 36px;
+      font-size: 32px;
       font-weight: 500;
-      line-height: 0.92;
-      letter-spacing: -1.08px;
+      line-height: 0.95;
+      letter-spacing: -0.96px;
     }
 
     /* Content block - top right */
     .content-block {
       position: absolute;
       top: 20px;
-      left: 40%;
+      left: 38%;
       right: 20px;
     }
 
     .subtitle {
       font-family: 'Neue Haas Grotesk', sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
       text-transform: uppercase;
       line-height: 1.1;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .description {
       font-family: 'Neue Haas Grotesk', sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
-      line-height: 1.1;
+      line-height: 1.15;
     }
 
     /* Tile backgrounds */
@@ -122,10 +121,10 @@
     /* ============ AGENTIC ============ */
     .agentic-image {
       position: absolute;
-      top: 42%;
-      left: 20px;
-      right: 20px;
-      border-radius: 15px 15px 0 0;
+      top: 40%;
+      left: 16px;
+      right: 16px;
+      border-radius: 12px 12px 0 0;
       overflow: hidden;
     }
     .agentic-image img {
@@ -136,10 +135,10 @@
     /* ============ CHECKOUT ============ */
     .checkout-image {
       position: absolute;
-      top: 38%;
-      left: 20px;
-      right: 20px;
-      border-radius: 15px 15px 0 0;
+      top: 42%;
+      left: 16px;
+      right: 16px;
+      border-radius: 12px 12px 0 0;
       overflow: hidden;
     }
     .checkout-image img {
@@ -148,11 +147,11 @@
     }
     .shop-button {
       position: absolute;
-      bottom: -8px;
+      bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
-      height: 60px;
-      border-radius: 70px;
+      height: 50px;
+      border-radius: 50px;
       overflow: hidden;
     }
     .shop-button img {
@@ -167,23 +166,23 @@
       left: 20px;
       right: 20px;
       font-family: 'Neue Haas Grotesk', sans-serif;
-      font-size: 36px;
+      font-size: 32px;
       font-weight: 500;
-      line-height: 0.92;
-      letter-spacing: -1.08px;
+      line-height: 0.95;
+      letter-spacing: -0.96px;
     }
 
     /* ============ ONLINE ============ */
     .online-quote {
       position: absolute;
-      bottom: -10px;
+      bottom: -8px;
       left: 20px;
       right: 20px;
       font-family: 'Neue Haas Grotesk', sans-serif;
-      font-size: 36px;
+      font-size: 32px;
       font-weight: 500;
-      line-height: 0.92;
-      letter-spacing: -1.08px;
+      line-height: 0.95;
+      letter-spacing: -0.96px;
     }
 
     /* ============ CENTER ============ */
@@ -203,40 +202,37 @@
       text-align: center;
     }
     .center-logo {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 16px;
+      width: 50px;
+      height: 50px;
+      margin-bottom: 12px;
     }
     .center-title {
       font-family: 'Neue Haas Grotesk', sans-serif;
-      font-size: 36px;
+      font-size: 32px;
       font-weight: 500;
-      line-height: 0.92;
-      letter-spacing: -1.08px;
+      line-height: 0.95;
+      letter-spacing: -0.96px;
       color: #fff;
     }
 
     /* ============ OPERATIONS ============ */
     .operations-phones {
       position: absolute;
-      bottom: -5%;
-      left: 15%;
-      right: 15%;
-      display: flex;
-      justify-content: center;
-      gap: 8px;
+      bottom: -8%;
+      left: 10%;
+      right: 10%;
     }
     .operations-phones img {
       width: 100%;
-      border-radius: 8px 8px 0 0;
+      display: block;
     }
 
     /* ============ RETAIL ============ */
     .retail-device {
       position: absolute;
-      bottom: -15%;
+      bottom: -10%;
       left: -5%;
-      width: 85%;
+      width: 75%;
     }
     .retail-device img {
       width: 100%;
@@ -246,20 +242,12 @@
     /* ============ MARKETING ============ */
     .skateboards {
       position: absolute;
-      bottom: -20%;
+      bottom: -15%;
       left: 50%;
       transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-      width: 85%;
-      justify-content: center;
+      width: 80%;
     }
-    .skateboard {
-      width: 23%;
-      border-radius: 46px 46px 0 0;
-      overflow: hidden;
-    }
-    .skateboard img {
+    .skateboards img {
       width: 100%;
       display: block;
     }
@@ -267,30 +255,30 @@
     /* ============ SHIPPING ============ */
     .shipping-card {
       position: absolute;
-      bottom: -5%;
-      right: 20px;
-      width: 45%;
-      max-width: 220px;
+      bottom: -8%;
+      right: 16px;
+      width: 42%;
+      max-width: 200px;
       background: #fff;
-      border-radius: 12px 12px 0 0;
-      padding: 16px;
+      border-radius: 10px 10px 0 0;
+      padding: 14px;
       color: #000;
     }
     .shipping-card-title {
       font-family: 'Neue Haas Grotesk', sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .shipping-card-label {
       font-family: 'Neue Haas Grotesk', sans-serif;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 400;
       color: #666;
     }
     .shipping-card-value {
       font-family: 'Neue Haas Grotesk', sans-serif;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 400;
       margin-top: 2px;
     }
@@ -301,25 +289,25 @@
     }
     .more-title {
       font-family: 'Neue Haas Grotesk', sans-serif;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 500;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .more-text {
       font-family: 'Neue Haas Grotesk', sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 400;
       line-height: 1.5;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
     .feature-list {
       list-style: none;
     }
     .feature-list li {
       font-family: 'Neue Haas Grotesk', sans-serif;
-      padding: 12px 0;
+      padding: 10px 0;
       border-bottom: 1px solid rgba(255,255,255,0.15);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 400;
     }
     .feature-list.dark li {
@@ -519,10 +507,7 @@
               <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
             </div>
             <div class="skateboards">
-              <div class="skateboard"><img src="skateboard-1.png" alt=""></div>
-              <div class="skateboard"><img src="skateboard-2.png" alt=""></div>
-              <div class="skateboard"><img src="skateboard-3.png" alt=""></div>
-              <div class="skateboard"><img src="skateboard-4.png" alt=""></div>
+              <img src="skateboards.png" alt="">
             </div>
           </div>
           <div class="more-content">
@@ -553,7 +538,7 @@
               <div class="shipping-card-title">Summary</div>
               <div class="shipping-card-label">Ship from</div>
               <div class="shipping-card-value">Anton Swift</div>
-              <div class="shipping-card-label" style="margin-top:8px;">1989 Cornelia Street</div>
+              <div class="shipping-card-label" style="margin-top:6px;">1989 Cornelia Street</div>
             </div>
           </div>
           <div class="more-content">
