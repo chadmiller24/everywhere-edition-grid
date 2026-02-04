@@ -48,6 +48,7 @@
       overflow: hidden;
     }
 
+    /* Scrollable content area */
     .tile-content {
       position: absolute;
       inset: 0;
@@ -60,35 +61,29 @@
       display: none;
     }
 
-    .scroll-area {
+    /* Header with title and content block */
+    .tile-header {
       position: relative;
-    }
-
-    /* First screen - exactly matches tile height */
-    .first-screen {
-      position: relative;
-      height: calc((100vh - 32px) / 3);
-      overflow: hidden;
+      padding: 20px;
+      padding-bottom: 10px;
     }
 
     /* Title - 32px positioned top-left */
     .title {
-      position: absolute;
-      top: 20px;
-      left: 20px;
       font-family: 'Neue Haas Grotesk', sans-serif;
       font-size: 32px;
       font-weight: 500;
       line-height: 0.95;
       letter-spacing: -0.96px;
+      margin-bottom: 10px;
+      display: inline-block;
     }
 
-    /* Content block - top right */
+    /* Content block - floated right */
     .content-block {
-      position: absolute;
-      top: 20px;
-      left: 38%;
-      right: 20px;
+      float: right;
+      width: 58%;
+      margin-left: 20px;
     }
 
     .subtitle {
@@ -118,66 +113,44 @@
     .tile-marketing { background: #b94828; color: #e2dfcc; }
     .tile-shipping { background: #2d3520; color: #f0f1ec; }
 
-    /* ============ AGENTIC ============ */
-    .agentic-image {
-      position: absolute;
-      top: 40%;
-      left: 16px;
-      right: 16px;
-      border-radius: 12px 12px 0 0;
-      overflow: hidden;
+    /* ============ IMAGES IN FLOW ============ */
+    .image-section {
+      clear: both;
+      padding: 0 16px;
     }
-    .agentic-image img {
+
+    .image-section img {
       width: 100%;
       display: block;
+      border-radius: 12px 12px 0 0;
     }
 
     /* ============ CHECKOUT ============ */
-    .checkout-image {
-      position: absolute;
-      top: 42%;
-      left: 16px;
-      right: 16px;
-      border-radius: 12px 12px 0 0;
-      overflow: hidden;
+    .checkout-section {
+      clear: both;
+      padding: 0 16px;
+      position: relative;
     }
-    .checkout-image img {
+    .checkout-section img {
       width: 100%;
       display: block;
+      border-radius: 12px 12px 0 0;
     }
     .shop-button {
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
+      display: block;
+      margin: -25px auto 0;
       height: 50px;
-      border-radius: 50px;
-      overflow: hidden;
-    }
-    .shop-button img {
-      height: 100%;
-      width: auto;
+      position: relative;
+      z-index: 2;
     }
 
-    /* ============ DEVELOPER ============ */
+    /* ============ DEVELOPER & ONLINE - Quote text ============ */
+    .quote-section {
+      clear: both;
+      padding: 20px;
+      padding-top: 30px;
+    }
     .quote-text {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      right: 20px;
-      font-family: 'Neue Haas Grotesk', sans-serif;
-      font-size: 32px;
-      font-weight: 500;
-      line-height: 0.95;
-      letter-spacing: -0.96px;
-    }
-
-    /* ============ ONLINE ============ */
-    .online-quote {
-      position: absolute;
-      bottom: -8px;
-      left: 20px;
-      right: 20px;
       font-family: 'Neue Haas Grotesk', sans-serif;
       font-size: 32px;
       font-weight: 500;
@@ -216,51 +189,48 @@
     }
 
     /* ============ OPERATIONS ============ */
-    .operations-phones {
-      position: absolute;
-      bottom: -8%;
-      left: 10%;
-      right: 10%;
+    .operations-section {
+      clear: both;
+      padding: 10px;
     }
-    .operations-phones img {
+    .operations-section img {
       width: 100%;
       display: block;
     }
 
     /* ============ RETAIL ============ */
-    .retail-device {
-      position: absolute;
-      bottom: -10%;
-      left: -5%;
-      width: 75%;
+    .retail-section {
+      clear: both;
+      padding-left: 0;
+      padding-right: 20%;
     }
-    .retail-device img {
+    .retail-section img {
       width: 100%;
       display: block;
     }
 
     /* ============ MARKETING ============ */
-    .skateboards {
-      position: absolute;
-      bottom: -15%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80%;
+    .marketing-section {
+      clear: both;
+      padding: 10px 15%;
     }
-    .skateboards img {
+    .marketing-section img {
       width: 100%;
       display: block;
     }
 
     /* ============ SHIPPING ============ */
+    .shipping-section {
+      clear: both;
+      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+    }
     .shipping-card {
-      position: absolute;
-      bottom: -8%;
-      right: 16px;
-      width: 42%;
-      max-width: 200px;
+      width: 55%;
+      max-width: 220px;
       background: #fff;
-      border-radius: 10px 10px 0 0;
+      border-radius: 10px;
       padding: 14px;
       color: #000;
     }
@@ -283,9 +253,9 @@
       margin-top: 2px;
     }
 
-    /* ============ MORE CONTENT (scroll area) ============ */
+    /* ============ MORE CONTENT (scroll continuation) ============ */
     .more-content {
-      padding: 40px 20px 60px;
+      padding: 30px 20px 60px;
     }
     .more-title {
       font-family: 'Neue Haas Grotesk', sans-serif;
@@ -320,27 +290,25 @@
     <!-- AGENTIC -->
     <div class="tile tile-agentic">
       <div class="tile-content">
-        <div class="scroll-area">
-          <div class="first-screen">
-            <div class="title">Agentic</div>
-            <div class="content-block">
-              <div class="subtitle">Shop Sign In for Custom IDPs</div>
-              <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
-            </div>
-            <div class="agentic-image">
-              <img src="agentic-admin.png" alt="">
-            </div>
+        <div class="tile-header">
+          <div class="content-block">
+            <div class="subtitle">Shop Sign In for Custom IDPs</div>
+            <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
           </div>
-          <div class="more-content">
-            <div class="more-title">AI-Powered Automation</div>
-            <div class="more-text">Let Sidekick handle repetitive tasks while you focus on growing your business.</div>
-            <ul class="feature-list">
-              <li>Natural language commands</li>
-              <li>Automated workflows</li>
-              <li>Predictive analytics</li>
-              <li>Smart recommendations</li>
-            </ul>
-          </div>
+          <div class="title">Agentic</div>
+        </div>
+        <div class="image-section">
+          <img src="agentic-admin.png" alt="">
+        </div>
+        <div class="more-content">
+          <div class="more-title">AI-Powered Automation</div>
+          <div class="more-text">Let Sidekick handle repetitive tasks while you focus on growing your business.</div>
+          <ul class="feature-list">
+            <li>Natural language commands</li>
+            <li>Automated workflows</li>
+            <li>Predictive analytics</li>
+            <li>Smart recommendations</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -348,30 +316,26 @@
     <!-- CHECKOUT -->
     <div class="tile tile-checkout">
       <div class="tile-content">
-        <div class="scroll-area">
-          <div class="first-screen">
-            <div class="title">Checkout</div>
-            <div class="content-block">
-              <div class="subtitle">Shop Sign In for Custom IDPs</div>
-              <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
-            </div>
-            <div class="checkout-image">
-              <img src="checkout-screen.png" alt="">
-            </div>
-            <div class="shop-button">
-              <img src="shop-button.png" alt="">
-            </div>
+        <div class="tile-header">
+          <div class="content-block">
+            <div class="subtitle">Shop Sign In for Custom IDPs</div>
+            <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
           </div>
-          <div class="more-content">
-            <div class="more-title">One-Click Checkout</div>
-            <div class="more-text">Shop Pay converts 1.91x better than regular checkouts.</div>
-            <ul class="feature-list dark">
-              <li>Custom branding</li>
-              <li>Third-party integrations</li>
-              <li>Multiple payment options</li>
-              <li>Express checkout</li>
-            </ul>
-          </div>
+          <div class="title">Checkout</div>
+        </div>
+        <div class="checkout-section">
+          <img src="checkout-screen.png" alt="">
+          <img class="shop-button" src="shop-button.png" alt="">
+        </div>
+        <div class="more-content">
+          <div class="more-title">One-Click Checkout</div>
+          <div class="more-text">Shop Pay converts 1.91x better than regular checkouts.</div>
+          <ul class="feature-list dark">
+            <li>Custom branding</li>
+            <li>Third-party integrations</li>
+            <li>Multiple payment options</li>
+            <li>Express checkout</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -379,25 +343,25 @@
     <!-- DEVELOPER -->
     <div class="tile tile-developer">
       <div class="tile-content">
-        <div class="scroll-area">
-          <div class="first-screen">
-            <div class="title">Developer</div>
-            <div class="content-block">
-              <div class="subtitle">Shop Sign In for Custom IDPs</div>
-              <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
-            </div>
-            <div class="quote-text">A completely new way to build for commerce with the power of AI.</div>
+        <div class="tile-header">
+          <div class="content-block">
+            <div class="subtitle">Shop Sign In for Custom IDPs</div>
+            <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
           </div>
-          <div class="more-content">
-            <div class="more-title">New APIs</div>
-            <div class="more-text">Build with the most powerful commerce platform.</div>
-            <ul class="feature-list">
-              <li>GraphQL Storefront API</li>
-              <li>Hydrogen 2.0</li>
-              <li>Webhooks v2</li>
-              <li>Admin API enhancements</li>
-            </ul>
-          </div>
+          <div class="title">Developer</div>
+        </div>
+        <div class="quote-section">
+          <div class="quote-text">A completely new way to build for commerce with the power of AI.</div>
+        </div>
+        <div class="more-content">
+          <div class="more-title">New APIs</div>
+          <div class="more-text">Build with the most powerful commerce platform.</div>
+          <ul class="feature-list">
+            <li>GraphQL Storefront API</li>
+            <li>Hydrogen 2.0</li>
+            <li>Webhooks v2</li>
+            <li>Admin API enhancements</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -405,25 +369,25 @@
     <!-- ONLINE -->
     <div class="tile tile-online">
       <div class="tile-content">
-        <div class="scroll-area">
-          <div class="first-screen">
-            <div class="title">Online</div>
-            <div class="content-block">
-              <div class="subtitle">Shop Sign In for Custom IDPs</div>
-              <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
-            </div>
-            <div class="online-quote">Validate store changes with A/B testing and an AI tool that simulates shopping behavior.</div>
+        <div class="tile-header">
+          <div class="content-block">
+            <div class="subtitle">Shop Sign In for Custom IDPs</div>
+            <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
           </div>
-          <div class="more-content">
-            <div class="more-title">Store Themes</div>
-            <div class="more-text">Beautiful, fast, and customizable themes built with Online Store 2.0.</div>
-            <ul class="feature-list">
-              <li>A/B Testing built-in</li>
-              <li>AI shopping simulator</li>
-              <li>Mobile-first editor</li>
-              <li>Dawn theme updates</li>
-            </ul>
-          </div>
+          <div class="title">Online</div>
+        </div>
+        <div class="quote-section">
+          <div class="quote-text">Validate store changes with A/B testing and an AI tool that simulates shopping behavior.</div>
+        </div>
+        <div class="more-content">
+          <div class="more-title">Store Themes</div>
+          <div class="more-text">Beautiful, fast, and customizable themes built with Online Store 2.0.</div>
+          <ul class="feature-list">
+            <li>A/B Testing built-in</li>
+            <li>AI shopping simulator</li>
+            <li>Mobile-first editor</li>
+            <li>Dawn theme updates</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -443,27 +407,25 @@
     <!-- OPERATIONS -->
     <div class="tile tile-operations">
       <div class="tile-content">
-        <div class="scroll-area">
-          <div class="first-screen">
-            <div class="title">Operations</div>
-            <div class="content-block">
-              <div class="subtitle">Shop Sign In for Custom IDPs</div>
-              <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
-            </div>
-            <div class="operations-phones">
-              <img src="operations-phones.png" alt="">
-            </div>
+        <div class="tile-header">
+          <div class="content-block">
+            <div class="subtitle">Shop Sign In for Custom IDPs</div>
+            <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
           </div>
-          <div class="more-content">
-            <div class="more-title">Unified Operations</div>
-            <div class="more-text">Manage inventory, orders, and fulfillment across all channels.</div>
-            <ul class="feature-list dark">
-              <li>Multi-location inventory</li>
-              <li>Automated reordering</li>
-              <li>Demand forecasting</li>
-              <li>Supply chain visibility</li>
-            </ul>
-          </div>
+          <div class="title">Operations</div>
+        </div>
+        <div class="operations-section">
+          <img src="operations-phones.png" alt="">
+        </div>
+        <div class="more-content">
+          <div class="more-title">Unified Operations</div>
+          <div class="more-text">Manage inventory, orders, and fulfillment across all channels.</div>
+          <ul class="feature-list dark">
+            <li>Multi-location inventory</li>
+            <li>Automated reordering</li>
+            <li>Demand forecasting</li>
+            <li>Supply chain visibility</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -471,27 +433,25 @@
     <!-- RETAIL -->
     <div class="tile tile-retail">
       <div class="tile-content">
-        <div class="scroll-area">
-          <div class="first-screen">
-            <div class="title">Retail</div>
-            <div class="content-block">
-              <div class="subtitle">Shop Sign In for Custom IDPs</div>
-              <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
-            </div>
-            <div class="retail-device">
-              <img src="retail-device.png" alt="">
-            </div>
+        <div class="tile-header">
+          <div class="content-block">
+            <div class="subtitle">Shop Sign In for Custom IDPs</div>
+            <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
           </div>
-          <div class="more-content">
-            <div class="more-title">Point of Sale</div>
-            <div class="more-text">The most powerful POS for modern retail.</div>
-            <ul class="feature-list">
-              <li>Tap to pay on iPhone</li>
-              <li>Staff management</li>
-              <li>Real-time reporting</li>
-              <li>Omnichannel selling</li>
-            </ul>
-          </div>
+          <div class="title">Retail</div>
+        </div>
+        <div class="retail-section">
+          <img src="retail-device.png" alt="">
+        </div>
+        <div class="more-content">
+          <div class="more-title">Point of Sale</div>
+          <div class="more-text">The most powerful POS for modern retail.</div>
+          <ul class="feature-list">
+            <li>Tap to pay on iPhone</li>
+            <li>Staff management</li>
+            <li>Real-time reporting</li>
+            <li>Omnichannel selling</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -499,27 +459,25 @@
     <!-- MARKETING -->
     <div class="tile tile-marketing">
       <div class="tile-content">
-        <div class="scroll-area">
-          <div class="first-screen">
-            <div class="title">Marketing</div>
-            <div class="content-block">
-              <div class="subtitle">Shop Sign In for Custom IDPs</div>
-              <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
-            </div>
-            <div class="skateboards">
-              <img src="skateboards.png" alt="">
-            </div>
+        <div class="tile-header">
+          <div class="content-block">
+            <div class="subtitle">Shop Sign In for Custom IDPs</div>
+            <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
           </div>
-          <div class="more-content">
-            <div class="more-title">Shopify Audiences</div>
-            <div class="more-text">Find high-intent buyers with custom audiences.</div>
-            <ul class="feature-list">
-              <li>Email campaigns</li>
-              <li>SMS marketing</li>
-              <li>Retargeting ads</li>
-              <li>Social commerce</li>
-            </ul>
-          </div>
+          <div class="title">Marketing</div>
+        </div>
+        <div class="marketing-section">
+          <img src="skateboards.png" alt="">
+        </div>
+        <div class="more-content">
+          <div class="more-title">Shopify Audiences</div>
+          <div class="more-text">Find high-intent buyers with custom audiences.</div>
+          <ul class="feature-list">
+            <li>Email campaigns</li>
+            <li>SMS marketing</li>
+            <li>Retargeting ads</li>
+            <li>Social commerce</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -527,30 +485,30 @@
     <!-- SHIPPING -->
     <div class="tile tile-shipping">
       <div class="tile-content">
-        <div class="scroll-area">
-          <div class="first-screen">
-            <div class="title">Shipping</div>
-            <div class="content-block">
-              <div class="subtitle">Shop Sign In for Custom IDPs</div>
-              <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
-            </div>
-            <div class="shipping-card">
-              <div class="shipping-card-title">Summary</div>
-              <div class="shipping-card-label">Ship from</div>
-              <div class="shipping-card-value">Anton Swift</div>
-              <div class="shipping-card-label" style="margin-top:6px;">1989 Cornelia Street</div>
-            </div>
+        <div class="tile-header">
+          <div class="content-block">
+            <div class="subtitle">Shop Sign In for Custom IDPs</div>
+            <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
           </div>
-          <div class="more-content">
-            <div class="more-title">Shopify Shipping</div>
-            <div class="more-text">Save up to 88% on shipping with pre-negotiated rates.</div>
-            <ul class="feature-list">
-              <li>Print labels at home</li>
-              <li>Free packaging</li>
-              <li>Real-time tracking</li>
-              <li>International shipping</li>
-            </ul>
+          <div class="title">Shipping</div>
+        </div>
+        <div class="shipping-section">
+          <div class="shipping-card">
+            <div class="shipping-card-title">Summary</div>
+            <div class="shipping-card-label">Ship from</div>
+            <div class="shipping-card-value">Anton Swift</div>
+            <div class="shipping-card-label" style="margin-top:6px;">1989 Cornelia Street</div>
           </div>
+        </div>
+        <div class="more-content">
+          <div class="more-title">Shopify Shipping</div>
+          <div class="more-text">Save up to 88% on shipping with pre-negotiated rates.</div>
+          <ul class="feature-list">
+            <li>Print labels at home</li>
+            <li>Free packaging</li>
+            <li>Real-time tracking</li>
+            <li>International shipping</li>
+          </ul>
         </div>
       </div>
     </div>
