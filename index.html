@@ -4,8 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Everywhere Edition</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'Neue Haas Grotesk';
+      src: url('NHaasGroteskTXPro-55Rg.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Neue Haas Grotesk';
+      src: url('NHaasGroteskTXPro-65Md.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -13,7 +26,7 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Neue Haas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
       background: #000;
       overflow: hidden;
     }
@@ -62,12 +75,11 @@
       padding: 20px;
     }
 
-    /* Typography */
+    /* Typography - All Neue Haas Grotesk */
     .title {
-      font-family: 'Instrument Serif', Georgia, serif;
+      font-family: 'Neue Haas Grotesk', sans-serif;
       font-size: 36px;
-      font-weight: 400;
-      font-style: italic;
+      font-weight: 500;
       line-height: 0.92;
       letter-spacing: -1.08px;
     }
@@ -81,24 +93,25 @@
     }
 
     .subtitle {
+      font-family: 'Neue Haas Grotesk', sans-serif;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 500;
       text-transform: uppercase;
       line-height: 1.1;
       margin-bottom: 10px;
     }
 
     .description {
+      font-family: 'Neue Haas Grotesk', sans-serif;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 500;
       line-height: 1.1;
     }
 
     .highlight-text {
-      font-family: 'Instrument Serif', Georgia, serif;
+      font-family: 'Neue Haas Grotesk', sans-serif;
       font-size: 36px;
-      font-weight: 400;
-      font-style: italic;
+      font-weight: 500;
       line-height: 0.92;
       letter-spacing: -1.08px;
       position: absolute;
@@ -111,7 +124,7 @@
     .tile-checkout { background: #f0f1ec; color: #2d3520; }
     .tile-developer { background: #393939; color: #fff; }
     .tile-online { background: #49572c; color: #f0f1ec; }
-    .tile-center { background: linear-gradient(180deg, rgba(50,50,50,0.8) 0%, rgba(20,20,20,0.9) 100%); color: #fff; }
+    .tile-center { color: #fff; }
     .tile-operations { background: #e2dfcc; color: #393939; }
     .tile-retail { background: #67707f; color: #e2dfcc; }
     .tile-marketing { background: #b94828; color: #e2dfcc; }
@@ -239,18 +252,23 @@
     }
 
     .shipping-card-title {
+      font-family: 'Neue Haas Grotesk', sans-serif;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 500;
       margin-bottom: 12px;
     }
 
     .shipping-card-label {
+      font-family: 'Neue Haas Grotesk', sans-serif;
       font-size: 11px;
+      font-weight: 400;
       color: #666;
     }
 
     .shipping-card-value {
+      font-family: 'Neue Haas Grotesk', sans-serif;
       font-size: 13px;
+      font-weight: 400;
       margin-top: 2px;
     }
 
@@ -268,13 +286,16 @@
     }
 
     .section-title {
+      font-family: 'Neue Haas Grotesk', sans-serif;
       font-size: 18px;
-      font-weight: 600;
+      font-weight: 500;
       margin-bottom: 12px;
     }
 
     .section-text {
+      font-family: 'Neue Haas Grotesk', sans-serif;
       font-size: 14px;
+      font-weight: 400;
       line-height: 1.5;
       opacity: 0.85;
     }
@@ -285,9 +306,11 @@
     }
 
     .feature-list li {
+      font-family: 'Neue Haas Grotesk', sans-serif;
       padding: 10px 0;
       border-bottom: 1px solid rgba(255,255,255,0.1);
       font-size: 14px;
+      font-weight: 400;
     }
 
     .feature-list.dark li {
@@ -305,7 +328,7 @@
         <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
       </div>
       <div class="admin-image">
-        <img src="https://www.figma.com/api/mcp/asset/435cca07-7da8-47bf-8356-29e0c37c8397" alt="">
+        <img src="agentic-admin.png" alt="">
       </div>
       <div class="tile-inner">
         <div class="tile-scroll-content" style="padding-top: 320px;">
@@ -330,10 +353,10 @@
         <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
       </div>
       <div class="checkout-image">
-        <img src="https://www.figma.com/api/mcp/asset/7556458d-9ea6-4e3e-8a52-df876243b379" alt="">
+        <img src="checkout-screen.png" alt="">
       </div>
       <div class="shop-button">
-        <img src="https://www.figma.com/api/mcp/asset/9d499e83-0724-4e08-b4da-9250c9ebb70d" alt="">
+        <img src="shop-button.png" alt="">
       </div>
       <div class="tile-inner">
         <div class="tile-scroll-content" style="padding-top: 320px;">
@@ -396,7 +419,7 @@
     </div>
 
     <!-- Center - Everywhere Edition -->
-    <div class="tile tile-center" style="background-image:url('https://www.figma.com/api/mcp/asset/1bc724e7-c4fb-4c66-85d0-7d613a5420a1');background-size:cover;background-position:center;">
+    <div class="tile tile-center" style="background-image:url('center-bg.png');background-size:cover;background-position:center;">
       <div class="center-wrapper">
         <svg class="center-logo" viewBox="0 0 61 61" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M40.5809 7.11622C40.576 7.11622 39.9 7.32688 38.7535 7.68207C38.5625 7.06233 38.2808 6.3005 37.879 5.53378C36.5857 3.06459 34.6897 1.7565 32.3993 1.75405C32.3968 1.75405 32.3944 1.75405 32.3919 1.75405C32.2327 1.75405 32.0759 1.76875 31.9167 1.78344C31.8506 1.70261 31.782 1.62177 31.7085 1.54584C30.7115 0.477811 29.4304 -0.0415038 27.8969 0.00258893C24.9378 0.0883248 21.9934 2.22437 19.6051 6.0188C17.9246 8.68886 16.6459 12.0448 16.2834 14.6389C12.8858 15.6898 10.5097 16.4271 10.4583 16.4418C8.74354 16.9807 8.68965 17.0346 8.46428 18.6489C8.29771 19.8737 3.8125 54.5625 3.8125 54.5625L41.0317 61V7.04028C40.848 7.05253 40.6838 7.08682 40.5809 7.11622ZM31.9878 9.77648C30.0183 10.3864 27.8675 11.0527 25.7119 11.719C26.3194 9.39679 27.4683 7.08192 28.8817 5.56807C29.4083 5.00467 30.1432 4.37512 31.0128 4.01748C31.8285 5.72485 32.0074 8.1426 31.9878 9.77648Z" fill="white"/>
@@ -422,7 +445,7 @@
         <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
       </div>
       <div class="phones-image">
-        <img src="https://www.figma.com/api/mcp/asset/6d73bed6-776b-4efb-a6d6-51ef13230f50" alt="">
+        <img src="operations-phones.png" alt="">
       </div>
       <div class="tile-inner">
         <div class="tile-scroll-content" style="padding-top: 320px;">
@@ -447,7 +470,7 @@
         <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
       </div>
       <div class="retail-image">
-        <img src="https://www.figma.com/api/mcp/asset/5b7184e0-ef9d-46cc-93e2-cd691975fbfc" alt="">
+        <img src="retail-device.png" alt="">
       </div>
       <div class="tile-inner">
         <div class="tile-scroll-content" style="padding-top: 320px;">
@@ -472,10 +495,10 @@
         <div class="description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
       </div>
       <div class="skateboards">
-        <img src="https://www.figma.com/api/mcp/asset/adc05576-23db-48e7-b72d-f33d184fd9c7" alt="">
-        <img src="https://www.figma.com/api/mcp/asset/1f8d3d66-233c-4db4-a062-730d757b4841" alt="">
-        <img src="https://www.figma.com/api/mcp/asset/36c77383-4fb2-4744-8e7f-4fd47b39f037" alt="">
-        <img src="https://www.figma.com/api/mcp/asset/8367fe4f-59fb-474b-ae70-8be36a861aa3" alt="">
+        <img src="skateboard-1.png" alt="">
+        <img src="skateboard-2.png" alt="">
+        <img src="skateboard-3.png" alt="">
+        <img src="skateboard-4.png" alt="">
       </div>
       <div class="tile-inner">
         <div class="tile-scroll-content" style="padding-top: 320px;">
