@@ -4,8 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Everywhere Edition</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'Neue Haas Grotesk Display Pro';
+      src: url('https://fonts.cdnfonts.com/s/51541/NeueHaasDisplayMediu.woff') format('woff');
+      font-weight: 500;
+      font-style: normal;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -13,7 +19,7 @@
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: #000;
       min-height: 100vh;
       overflow: hidden;
@@ -25,7 +31,8 @@
       grid-template-rows: repeat(3, 1fr);
       width: 100vw;
       height: 100vh;
-      gap: 4px;
+      gap: 8px;
+      padding: 8px;
       background: #000;
     }
 
@@ -33,12 +40,13 @@
       overflow-y: auto;
       overflow-x: hidden;
       position: relative;
+      border-radius: 9px;
       scrollbar-width: thin;
-      scrollbar-color: rgba(255,255,255,0.3) transparent;
+      scrollbar-color: rgba(255,255,255,0.2) transparent;
     }
 
     .tile::-webkit-scrollbar {
-      width: 6px;
+      width: 4px;
     }
 
     .tile::-webkit-scrollbar-track {
@@ -46,190 +54,144 @@
     }
 
     .tile::-webkit-scrollbar-thumb {
-      background: rgba(255,255,255,0.3);
-      border-radius: 3px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 2px;
     }
 
     .tile-content {
-      padding: 32px;
+      padding: 20px;
       min-height: 200%;
     }
 
-    .tile-header {
-      margin-bottom: 8px;
-    }
-
     .tile-title {
-      font-size: 32px;
-      font-weight: 600;
-      margin-bottom: 16px;
-      font-style: italic;
+      font-family: 'Neue Haas Grotesk Display Pro', Georgia, serif;
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 0.92;
+      letter-spacing: -1.08px;
+      margin-bottom: 0;
     }
 
     .tile-subtitle {
-      font-size: 11px;
+      font-size: 14px;
       font-weight: 600;
-      letter-spacing: 0.5px;
       text-transform: uppercase;
-      opacity: 0.8;
-      margin-bottom: 8px;
+      line-height: 1.1;
+      margin-bottom: 10px;
     }
 
     .tile-description {
       font-size: 14px;
-      line-height: 1.5;
-      opacity: 0.9;
-      max-width: 280px;
+      font-weight: 600;
+      line-height: 1.1;
     }
 
     .tile-highlight {
-      font-size: 28px;
-      font-weight: 600;
-      font-style: italic;
-      line-height: 1.2;
+      font-family: 'Neue Haas Grotesk Display Pro', Georgia, serif;
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 0.92;
+      letter-spacing: -1.08px;
       margin-top: 40px;
+    }
+
+    .content-block {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 297px;
+    }
+
+    .image-container {
+      margin-top: 24px;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .section {
       margin-top: 60px;
-      padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.15);
     }
 
     .section-title {
       font-size: 18px;
       font-weight: 600;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .section-text {
       font-size: 14px;
-      line-height: 1.6;
-      opacity: 0.8;
+      line-height: 1.5;
+      opacity: 0.85;
     }
 
     .feature-list {
       list-style: none;
-      margin-top: 24px;
+      margin-top: 20px;
     }
 
     .feature-list li {
-      padding: 12px 0;
+      padding: 10px 0;
       border-bottom: 1px solid rgba(255,255,255,0.1);
       font-size: 14px;
     }
 
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      margin-top: 32px;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: 36px;
-      font-weight: 700;
-    }
-
-    .stat-label {
-      font-size: 12px;
-      opacity: 0.7;
-      margin-top: 4px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 20px;
-      margin-top: 24px;
-    }
-
-    .card-title {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .card-text {
-      font-size: 13px;
-      opacity: 0.8;
-      line-height: 1.5;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      margin-top: 24px;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: #fff;
-      color: #000;
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.15);
-      color: #fff;
-    }
-
-    /* Tile-specific colors */
+    /* Tile Colors */
     .tile-agentic {
-      background: linear-gradient(180deg, #2d3b35 0%, #1f2a25 100%);
-      color: #fff;
+      background: #283043;
+      color: #f0f1ec;
     }
 
     .tile-checkout {
-      background: linear-gradient(180deg, #8a8275 0%, #6b6358 100%);
-      color: #fff;
+      background: #f0f1ec;
+      color: #2d3520;
     }
 
     .tile-developer {
-      background: linear-gradient(180deg, #3d3c2e 0%, #2a2920 100%);
+      background: #393939;
       color: #fff;
     }
 
     .tile-online {
-      background: linear-gradient(180deg, #2d4a3e 0%, #1c3028 100%);
-      color: #fff;
+      background: #49572c;
+      color: #f0f1ec;
     }
 
     .tile-center {
-      background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+      background: url('https://www.figma.com/api/mcp/asset/1bc724e7-c4fb-4c66-85d0-7d613a5420a1') center/cover;
       color: #fff;
       display: flex;
       flex-direction: column;
     }
 
     .tile-operations {
-      background: linear-gradient(180deg, #3d3c2e 0%, #2a2920 100%);
-      color: #fff;
+      background: #e2dfcc;
+      color: #393939;
     }
 
     .tile-retail {
-      background: linear-gradient(180deg, #4a5568 0%, #2d3748 100%);
-      color: #fff;
+      background: #67707f;
+      color: #e2dfcc;
     }
 
     .tile-marketing {
-      background: linear-gradient(180deg, #c65d3b 0%, #a04a2e 100%);
-      color: #fff;
+      background: #b94828;
+      color: #e2dfcc;
     }
 
     .tile-shipping {
-      background: linear-gradient(180deg, #3d3c2e 0%, #2a2920 100%);
-      color: #fff;
+      background: #2d3520;
+      color: #f0f1ec;
     }
 
-    /* Center tile special styling */
+    /* Center tile */
     .center-content {
       flex: 1;
       display: flex;
@@ -237,190 +199,100 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 32px;
+      padding: 20px;
       min-height: 100%;
     }
 
     .center-logo {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 24px;
+      width: 60px;
+      height: 60px;
+      margin-bottom: 20px;
     }
 
     .center-title {
+      font-family: 'Neue Haas Grotesk Display Pro', Georgia, serif;
       font-size: 36px;
       font-weight: 500;
-      font-style: italic;
+      line-height: 0.92;
+      letter-spacing: -1.08px;
     }
 
     .center-scroll-content {
-      padding: 32px;
+      padding: 20px;
       text-align: center;
     }
 
-    /* Mock UI elements */
-    .mock-admin {
-      background: #1a1a1a;
-      border-radius: 8px;
-      overflow: hidden;
-      margin-top: 24px;
-    }
-
-    .mock-admin-header {
-      background: #2d2d2d;
-      padding: 8px 12px;
+    /* Skateboard images for Marketing */
+    .skateboard-row {
       display: flex;
-      gap: 6px;
-    }
-
-    .mock-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #555;
-    }
-
-    .mock-admin-body {
-      padding: 16px;
-      min-height: 120px;
-    }
-
-    .mock-sidebar-item {
-      padding: 8px 12px;
-      font-size: 12px;
-      opacity: 0.7;
-      border-radius: 4px;
-    }
-
-    .mock-sidebar-item:hover {
-      background: rgba(255,255,255,0.1);
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      gap: 8px;
       margin-top: 24px;
+      justify-content: center;
     }
 
-    .product-card {
-      background: rgba(255,255,255,0.1);
-      border-radius: 8px;
-      overflow: hidden;
+    .skateboard-row img {
+      width: 93px;
+      height: auto;
+      border-radius: 90px;
+      object-fit: cover;
     }
 
-    .product-image {
-      height: 80px;
-      background: rgba(255,255,255,0.15);
+    /* Card styles */
+    .summary-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      color: #000;
+      margin-top: 24px;
+      max-width: 220px;
     }
 
-    .product-info {
-      padding: 12px;
+    .summary-card-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
     }
 
-    .product-name {
-      font-size: 12px;
-      font-weight: 500;
-    }
-
-    .product-price {
+    .summary-card-label {
       font-size: 11px;
-      opacity: 0.7;
-      margin-top: 4px;
+      color: #666;
+      margin-bottom: 2px;
+    }
+
+    .summary-card-value {
+      font-size: 13px;
+      color: #000;
+    }
+
+    /* Phone mockups */
+    .phone-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      justify-content: center;
     }
 
     .phone-mockup {
-      background: #1a1a1a;
-      border-radius: 24px;
-      padding: 8px;
-      width: 140px;
-      margin: 24px auto;
-    }
-
-    .phone-screen {
-      background: #fff;
-      border-radius: 20px;
-      height: 240px;
+      width: 120px;
+      border-radius: 15px;
       overflow: hidden;
     }
 
-    .checkout-btn {
+    .phone-mockup img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Buy with Shop button */
+    .shop-button {
       background: #5a31f4;
       color: #fff;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 14px;
-      text-align: center;
+      padding: 14px 32px;
+      border-radius: 70px;
+      font-size: 16px;
+      font-weight: 500;
+      display: inline-block;
       margin-top: 16px;
-    }
-
-    .code-block {
-      background: #0d0d0d;
-      border-radius: 8px;
-      padding: 16px;
-      margin-top: 24px;
-      font-family: monospace;
-      font-size: 12px;
-      overflow-x: auto;
-    }
-
-    .code-line {
-      padding: 2px 0;
-      opacity: 0.8;
-    }
-
-    .code-keyword {
-      color: #ff79c6;
-    }
-
-    .code-string {
-      color: #f1fa8c;
-    }
-
-    .code-function {
-      color: #8be9fd;
-    }
-
-    .timeline {
-      margin-top: 32px;
-      position: relative;
-      padding-left: 24px;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: rgba(255,255,255,0.2);
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-bottom: 24px;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -28px;
-      top: 4px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #fff;
-    }
-
-    .timeline-date {
-      font-size: 11px;
-      opacity: 0.6;
-      margin-bottom: 4px;
-    }
-
-    .timeline-text {
-      font-size: 14px;
     }
   </style>
 </head>
@@ -429,58 +301,30 @@
     <!-- Agentic -->
     <div class="tile tile-agentic">
       <div class="tile-content">
-        <div class="tile-header">
-          <div class="tile-title">Agentic</div>
+        <div class="tile-title">Agentic</div>
+        <div class="content-block">
           <div class="tile-subtitle">Shop Sign In for Custom IDPs</div>
           <div class="tile-description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
         </div>
 
-        <div class="mock-admin">
-          <div class="mock-admin-header">
-            <div class="mock-dot"></div>
-            <div class="mock-dot"></div>
-            <div class="mock-dot"></div>
-          </div>
-          <div class="mock-admin-body">
-            <div class="mock-sidebar-item">🏠 Home</div>
-            <div class="mock-sidebar-item">📦 Orders</div>
-            <div class="mock-sidebar-item">🛍️ Products</div>
-            <div class="mock-sidebar-item">👥 Customers</div>
-            <div class="mock-sidebar-item">📊 Analytics</div>
-          </div>
+        <div class="image-container" style="margin-top: 80px;">
+          <img src="https://www.figma.com/api/mcp/asset/435cca07-7da8-47bf-8356-29e0c37c8397" alt="Admin interface">
         </div>
-
-        <div class="tile-highlight">Validate store changes with A/B testing and an AI tool that simulates shopping behavior.</div>
 
         <div class="section">
           <div class="section-title">AI-Powered Automation</div>
-          <div class="section-text">Let Sidekick handle repetitive tasks while you focus on growing your business. From inventory management to customer service.</div>
-
+          <div class="section-text">Let Sidekick handle repetitive tasks while you focus on growing your business.</div>
           <ul class="feature-list">
-            <li>✨ Natural language commands</li>
-            <li>🔄 Automated workflows</li>
-            <li>📈 Predictive analytics</li>
-            <li>🎯 Smart recommendations</li>
+            <li>Natural language commands</li>
+            <li>Automated workflows</li>
+            <li>Predictive analytics</li>
+            <li>Smart recommendations</li>
           </ul>
         </div>
 
         <div class="section">
           <div class="section-title">Coming Soon</div>
-          <div class="card">
-            <div class="card-title">Sidekick Pro</div>
-            <div class="card-text">Advanced AI capabilities including custom model training and multi-store management.</div>
-          </div>
-        </div>
-
-        <div class="stat-grid">
-          <div class="stat">
-            <div class="stat-number">40%</div>
-            <div class="stat-label">Time saved</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">2.5x</div>
-            <div class="stat-label">Faster setup</div>
-          </div>
+          <div class="section-text">Advanced AI capabilities including custom model training and multi-store management.</div>
         </div>
       </div>
     </div>
@@ -488,54 +332,32 @@
     <!-- Checkout -->
     <div class="tile tile-checkout">
       <div class="tile-content">
-        <div class="tile-header">
-          <div class="tile-title">Checkout</div>
+        <div class="tile-title">Checkout</div>
+        <div class="content-block" style="color: #2d3520;">
           <div class="tile-subtitle">Shop Sign In for Custom IDPs</div>
           <div class="tile-description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
         </div>
 
-        <div class="phone-mockup">
-          <div class="phone-screen">
-            <div style="padding: 16px;">
-              <div style="font-size: 11px; color: #666; margin-bottom: 8px;">Order Summary</div>
-              <div style="font-size: 14px; color: #000; font-weight: 500;">$127.00</div>
-            </div>
-          </div>
+        <div class="image-container" style="margin-top: 80px; border-radius: 15px; overflow: hidden;">
+          <img src="https://www.figma.com/api/mcp/asset/7556458d-9ea6-4e3e-8a52-df876243b379" alt="Checkout screen">
         </div>
 
-        <div class="checkout-btn">Buy with Shop</div>
-
-        <div class="section">
-          <div class="section-title">One-Click Checkout</div>
-          <div class="section-text">Reduce cart abandonment with the fastest checkout experience on the internet. Shop Pay converts 1.91x better than regular checkouts.</div>
-
-          <div class="stat-grid">
-            <div class="stat">
-              <div class="stat-number">91%</div>
-              <div class="stat-label">Faster checkout</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">11%</div>
-              <div class="stat-label">Higher conversion</div>
-            </div>
-          </div>
+        <div style="text-align: center; margin-top: -20px;">
+          <img src="https://www.figma.com/api/mcp/asset/9d499e83-0724-4e08-b4da-9250c9ebb70d" alt="Buy with Shop" style="height: 60px; border-radius: 70px;">
         </div>
 
-        <div class="section">
-          <div class="section-title">Checkout Extensibility</div>
-          <ul class="feature-list">
-            <li>🎨 Custom branding</li>
-            <li>🔌 Third-party integrations</li>
-            <li>💳 Multiple payment options</li>
-            <li>🌍 Localized experiences</li>
-            <li>📱 Mobile-optimized</li>
+        <div class="section" style="border-color: rgba(0,0,0,0.1);">
+          <div class="section-title" style="color: #2d3520;">One-Click Checkout</div>
+          <div class="section-text" style="color: #2d3520;">Shop Pay converts 1.91x better than regular checkouts.</div>
+        </div>
+
+        <div class="section" style="border-color: rgba(0,0,0,0.1);">
+          <div class="section-title" style="color: #2d3520;">Checkout Extensibility</div>
+          <ul class="feature-list" style="color: #2d3520;">
+            <li style="border-color: rgba(0,0,0,0.1);">Custom branding</li>
+            <li style="border-color: rgba(0,0,0,0.1);">Third-party integrations</li>
+            <li style="border-color: rgba(0,0,0,0.1);">Multiple payment options</li>
           </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Shop Pay Installments</div>
-          <div class="card-text">Let customers split payments into 4 interest-free installments. Increase AOV by up to 50%.</div>
-          <button class="btn btn-secondary">Learn more</button>
         </div>
       </div>
     </div>
@@ -543,56 +365,27 @@
     <!-- Developer -->
     <div class="tile tile-developer">
       <div class="tile-content">
-        <div class="tile-header">
-          <div class="tile-title">Developer</div>
+        <div class="tile-title">Developer</div>
+        <div class="content-block">
           <div class="tile-subtitle">Shop Sign In for Custom IDPs</div>
           <div class="tile-description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
         </div>
 
-        <div class="tile-highlight">A completely new way to build for commerce with the power of AI.</div>
-
-        <div class="code-block">
-          <div class="code-line"><span class="code-keyword">const</span> discount = <span class="code-function">createDiscount</span>({</div>
-          <div class="code-line">  type: <span class="code-string">'percentage'</span>,</div>
-          <div class="code-line">  value: <span class="code-string">20</span>,</div>
-          <div class="code-line">  conditions: {</div>
-          <div class="code-line">    minItems: <span class="code-string">3</span></div>
-          <div class="code-line">  }</div>
-          <div class="code-line">});</div>
-        </div>
+        <div class="tile-highlight" style="margin-top: 140px;">A completely new way to build for commerce with the power of AI.</div>
 
         <div class="section">
           <div class="section-title">New APIs</div>
           <ul class="feature-list">
-            <li>🔗 GraphQL Storefront API</li>
-            <li>⚡ Hydrogen 2.0</li>
-            <li>🎣 Webhooks v2</li>
-            <li>🔐 OAuth improvements</li>
-            <li>📊 Analytics API</li>
+            <li>GraphQL Storefront API</li>
+            <li>Hydrogen 2.0</li>
+            <li>Webhooks v2</li>
+            <li>OAuth improvements</li>
           </ul>
         </div>
 
         <div class="section">
           <div class="section-title">Developer Tools</div>
-          <div class="card">
-            <div class="card-title">Shopify CLI</div>
-            <div class="card-text">Build, test, and deploy apps faster with our improved command-line interface.</div>
-          </div>
-          <div class="card">
-            <div class="card-title">Dev Stores</div>
-            <div class="card-text">Unlimited development stores for testing and experimentation.</div>
-          </div>
-        </div>
-
-        <div class="stat-grid">
-          <div class="stat">
-            <div class="stat-number">10M+</div>
-            <div class="stat-label">API calls/day</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">50ms</div>
-            <div class="stat-label">Avg response</div>
-          </div>
+          <div class="section-text">Build, test, and deploy apps faster with improved CLI and unlimited dev stores.</div>
         </div>
       </div>
     </div>
@@ -600,51 +393,23 @@
     <!-- Online -->
     <div class="tile tile-online">
       <div class="tile-content">
-        <div class="tile-header">
-          <div class="tile-title">Online</div>
+        <div class="tile-title">Online</div>
+        <div class="content-block">
           <div class="tile-subtitle">Shop Sign In for Custom IDPs</div>
           <div class="tile-description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
         </div>
 
-        <div class="tile-highlight">Validate store changes with A/B testing and an AI tool that simulates shopping behavior.</div>
+        <div class="tile-highlight" style="margin-top: 140px;">Validate store changes with A/B testing and an AI tool that simulates shopping behavior.</div>
 
         <div class="section">
           <div class="section-title">Store Themes</div>
           <div class="section-text">Beautiful, fast, and customizable themes built with Online Store 2.0.</div>
-
-          <div class="product-grid">
-            <div class="product-card">
-              <div class="product-image"></div>
-              <div class="product-info">
-                <div class="product-name">Dawn</div>
-                <div class="product-price">Free</div>
-              </div>
-            </div>
-            <div class="product-card">
-              <div class="product-image"></div>
-              <div class="product-info">
-                <div class="product-name">Sense</div>
-                <div class="product-price">Free</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="section">
-          <div class="section-title">New Features</div>
           <ul class="feature-list">
-            <li>🧪 A/B Testing built-in</li>
-            <li>🤖 AI shopping simulator</li>
-            <li>📱 Mobile-first editor</li>
-            <li>🎨 Drag-and-drop sections</li>
-            <li>⚡ Core Web Vitals optimized</li>
+            <li>A/B Testing built-in</li>
+            <li>AI shopping simulator</li>
+            <li>Mobile-first editor</li>
+            <li>Drag-and-drop sections</li>
           </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Metaobjects</div>
-          <div class="card-text">Create custom content types and display them anywhere in your store.</div>
-          <button class="btn btn-secondary">Explore</button>
         </div>
       </div>
     </div>
@@ -661,37 +426,17 @@
       <div class="center-scroll-content">
         <div class="section" style="border-top: none; margin-top: 0;">
           <div class="section-title">Summer 2025</div>
-          <div class="section-text">The biggest collection of product updates in Shopify history. Over 150 new features and improvements.</div>
+          <div class="section-text">The biggest collection of product updates in Shopify history.</div>
         </div>
 
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-date">Keynote</div>
-            <div class="timeline-text">Opening remarks & vision</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">10:30 AM</div>
-            <div class="timeline-text">Product announcements</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">12:00 PM</div>
-            <div class="timeline-text">Developer sessions</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">2:00 PM</div>
-            <div class="timeline-text">Partner showcase</div>
-          </div>
+        <div class="section">
+          <div class="section-title">150+ New Features</div>
+          <div class="section-text">From AI-powered tools to global expansion capabilities.</div>
         </div>
 
-        <div class="stat-grid">
-          <div class="stat">
-            <div class="stat-number">150+</div>
-            <div class="stat-label">New features</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">50+</div>
-            <div class="stat-label">Countries</div>
-          </div>
+        <div class="section">
+          <div class="section-title">Available Now</div>
+          <div class="section-text">All features rolling out to merchants worldwide.</div>
         </div>
       </div>
     </div>
@@ -699,57 +444,26 @@
     <!-- Operations -->
     <div class="tile tile-operations">
       <div class="tile-content">
-        <div class="tile-header">
-          <div class="tile-title">Operations</div>
+        <div class="tile-title">Operations</div>
+        <div class="content-block" style="color: #393939;">
           <div class="tile-subtitle">Shop Sign In for Custom IDPs</div>
           <div class="tile-description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
         </div>
 
-        <div class="product-grid">
-          <div class="product-card">
-            <div class="product-image" style="background: #2a2a2a;"></div>
-            <div class="product-info">
-              <div class="product-name">Inventory</div>
-              <div class="product-price">Real-time sync</div>
-            </div>
-          </div>
-          <div class="product-card">
-            <div class="product-image" style="background: #2a2a2a;"></div>
-            <div class="product-info">
-              <div class="product-name">Orders</div>
-              <div class="product-price">Auto-routing</div>
-            </div>
+        <div class="phone-row" style="margin-top: 100px;">
+          <div class="phone-mockup">
+            <img src="https://www.figma.com/api/mcp/asset/6d73bed6-776b-4efb-a6d6-51ef13230f50" alt="Operations screen">
           </div>
         </div>
 
-        <div class="section">
-          <div class="section-title">Unified Operations</div>
-          <div class="section-text">Manage inventory, orders, and fulfillment across all your sales channels from one place.</div>
-
-          <ul class="feature-list">
-            <li>📦 Multi-location inventory</li>
-            <li>🔄 Automated reordering</li>
-            <li>📊 Demand forecasting</li>
-            <li>🚚 Smart fulfillment routing</li>
-            <li>📱 Mobile management</li>
+        <div class="section" style="border-color: rgba(0,0,0,0.1);">
+          <div class="section-title" style="color: #393939;">Unified Operations</div>
+          <div class="section-text" style="color: #393939;">Manage inventory, orders, and fulfillment across all your sales channels.</div>
+          <ul class="feature-list" style="color: #393939;">
+            <li style="border-color: rgba(0,0,0,0.1);">Multi-location inventory</li>
+            <li style="border-color: rgba(0,0,0,0.1);">Automated reordering</li>
+            <li style="border-color: rgba(0,0,0,0.1);">Demand forecasting</li>
           </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Shopify Fulfillment Network</div>
-          <div class="card-text">2-day delivery to 99% of the US. Let Shopify handle your logistics.</div>
-          <button class="btn btn-secondary">Get started</button>
-        </div>
-
-        <div class="stat-grid">
-          <div class="stat">
-            <div class="stat-number">99%</div>
-            <div class="stat-label">Order accuracy</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">2-day</div>
-            <div class="stat-label">Delivery</div>
-          </div>
         </div>
       </div>
     </div>
@@ -757,53 +471,25 @@
     <!-- Retail -->
     <div class="tile tile-retail">
       <div class="tile-content">
-        <div class="tile-header">
-          <div class="tile-title">Retail</div>
+        <div class="tile-title">Retail</div>
+        <div class="content-block">
           <div class="tile-subtitle">Shop Sign In for Custom IDPs</div>
           <div class="tile-description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
         </div>
 
-        <div style="background: #2d3748; border-radius: 12px; padding: 24px; margin-top: 24px; text-align: center;">
-          <div style="font-size: 48px; margin-bottom: 8px;">💳</div>
-          <div style="font-size: 14px; font-weight: 500;">POS Terminal</div>
+        <div style="margin-top: 120px; text-align: center;">
+          <img src="https://www.figma.com/api/mcp/asset/5b7184e0-ef9d-46cc-93e2-cd691975fbfc" alt="POS Device" style="max-width: 100%; height: auto;">
         </div>
 
         <div class="section">
           <div class="section-title">Point of Sale</div>
-          <div class="section-text">The most powerful POS for modern retail. Accept payments, manage staff, and sync with your online store.</div>
-
+          <div class="section-text">The most powerful POS for modern retail.</div>
           <ul class="feature-list">
-            <li>💳 Tap to pay on iPhone</li>
-            <li>👥 Staff management</li>
-            <li>📊 Real-time reporting</li>
-            <li>🔄 Omnichannel sync</li>
-            <li>🎁 Loyalty programs</li>
+            <li>Tap to pay on iPhone</li>
+            <li>Staff management</li>
+            <li>Real-time reporting</li>
+            <li>Omnichannel sync</li>
           </ul>
-        </div>
-
-        <div class="section">
-          <div class="section-title">Hardware</div>
-          <div class="product-grid">
-            <div class="product-card">
-              <div class="product-image"></div>
-              <div class="product-info">
-                <div class="product-name">POS Go</div>
-                <div class="product-price">$299</div>
-              </div>
-            </div>
-            <div class="product-card">
-              <div class="product-image"></div>
-              <div class="product-info">
-                <div class="product-name">Terminal</div>
-                <div class="product-price">$349</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Retail Analytics</div>
-          <div class="card-text">Understand foot traffic, conversion rates, and customer behavior in your physical stores.</div>
         </div>
       </div>
     </div>
@@ -811,50 +497,28 @@
     <!-- Marketing -->
     <div class="tile tile-marketing">
       <div class="tile-content">
-        <div class="tile-header">
-          <div class="tile-title">Marketing</div>
+        <div class="tile-title">Marketing</div>
+        <div class="content-block">
           <div class="tile-subtitle">Shop Sign In for Custom IDPs</div>
           <div class="tile-description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
         </div>
 
-        <div class="product-grid" style="grid-template-columns: repeat(4, 1fr);">
-          <div style="background: #fff; border-radius: 8px; height: 100px;"></div>
-          <div style="background: #fff; border-radius: 8px; height: 100px;"></div>
-          <div style="background: #fff; border-radius: 8px; height: 100px;"></div>
-          <div style="background: #fff; border-radius: 8px; height: 100px;"></div>
+        <div class="skateboard-row" style="margin-top: 120px;">
+          <img src="https://www.figma.com/api/mcp/asset/adc05576-23db-48e7-b72d-f33d184fd9c7" alt="Skateboard 1">
+          <img src="https://www.figma.com/api/mcp/asset/1f8d3d66-233c-4db4-a062-730d757b4841" alt="Skateboard 2">
+          <img src="https://www.figma.com/api/mcp/asset/36c77383-4fb2-4744-8e7f-4fd47b39f037" alt="Skateboard 3">
+          <img src="https://www.figma.com/api/mcp/asset/8367fe4f-59fb-474b-ae70-8be36a861aa3" alt="Skateboard 4">
         </div>
 
         <div class="section">
           <div class="section-title">Shopify Audiences</div>
           <div class="section-text">Find high-intent buyers with custom audiences powered by Shopify's commerce data.</div>
-
-          <div class="stat-grid">
-            <div class="stat">
-              <div class="stat-number">2.5x</div>
-              <div class="stat-label">Better ROAS</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">50%</div>
-              <div class="stat-label">Lower CAC</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="section">
-          <div class="section-title">Marketing Tools</div>
           <ul class="feature-list">
-            <li>📧 Email campaigns</li>
-            <li>📱 SMS marketing</li>
-            <li>🎯 Retargeting ads</li>
-            <li>📊 Attribution reporting</li>
-            <li>🤖 AI copywriting</li>
+            <li>Email campaigns</li>
+            <li>SMS marketing</li>
+            <li>Retargeting ads</li>
+            <li>AI copywriting</li>
           </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Shop Campaigns</div>
-          <div class="card-text">Reach millions of high-intent shoppers in the Shop app. Only pay when you make a sale.</div>
-          <button class="btn btn-primary">Create campaign</button>
         </div>
       </div>
     </div>
@@ -862,66 +526,32 @@
     <!-- Shipping -->
     <div class="tile tile-shipping">
       <div class="tile-content">
-        <div class="tile-header">
-          <div class="tile-title">Shipping</div>
+        <div class="tile-title">Shipping</div>
+        <div class="content-block">
           <div class="tile-subtitle">Shop Sign In for Custom IDPs</div>
           <div class="tile-description">Create fully functional admin applications through simple conversations with Sidekick, starting with custom discount functions—no coding knowledge required.</div>
         </div>
 
-        <div class="card" style="background: #fff; color: #000;">
-          <div class="card-title" style="color: #000;">Summary</div>
-          <div style="margin-top: 12px;">
-            <div style="font-size: 12px; color: #666;">Ship from</div>
-            <div style="font-size: 14px; margin-top: 4px;">Anton Swift</div>
-            <div style="font-size: 12px; color: #666;">1989 Cornelia Street</div>
-          </div>
+        <div class="image-container" style="margin-top: 120px; border-radius: 15px;">
+          <img src="https://www.figma.com/api/mcp/asset/7556458d-9ea6-4e3e-8a52-df876243b379" alt="Shipping interface">
+        </div>
+
+        <div class="summary-card" style="margin-top: 24px;">
+          <div class="summary-card-title">Summary</div>
+          <div class="summary-card-label">Ship from</div>
+          <div class="summary-card-value">Anton Swift</div>
+          <div class="summary-card-value" style="font-size: 12px; color: #666;">1989 Cornelia Street</div>
         </div>
 
         <div class="section">
           <div class="section-title">Shopify Shipping</div>
-          <div class="section-text">Save up to 88% on shipping with pre-negotiated rates from top carriers.</div>
-
-          <div class="stat-grid">
-            <div class="stat">
-              <div class="stat-number">88%</div>
-              <div class="stat-label">Savings</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">4</div>
-              <div class="stat-label">Carriers</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="section">
-          <div class="section-title">Features</div>
+          <div class="section-text">Save up to 88% on shipping with pre-negotiated rates.</div>
           <ul class="feature-list">
-            <li>🏷️ Print labels at home</li>
-            <li>📦 Free packaging</li>
-            <li>🔍 Real-time tracking</li>
-            <li>🌍 International shipping</li>
-            <li>↩️ Easy returns</li>
+            <li>Print labels at home</li>
+            <li>Free packaging</li>
+            <li>Real-time tracking</li>
+            <li>International shipping</li>
           </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Carrier Calculated Rates</div>
-          <div class="card-text">Show real-time rates from USPS, UPS, DHL, and FedEx at checkout.</div>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-date">Order placed</div>
-            <div class="timeline-text">Feb 1, 2025</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">Shipped</div>
-            <div class="timeline-text">Feb 2, 2025</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">Delivered</div>
-            <div class="timeline-text">Feb 4, 2025</div>
-          </div>
         </div>
       </div>
     </div>
